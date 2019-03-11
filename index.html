@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appMap">
+
+<head>
+    <title>Trix-Teste</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/leaflet/leaflet.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+
+</head>
+
+<body>
+    <div ng-controller="appMapCtrl" class="row content">
+        <div  class="col-sm-4 side-left">
+               
+            <img class="logo" src="img/trixlog.png" />
+
+            <div class="input-group mb-3">
+                    <input ng-model="point.name" type="text" class="form-control" placeholder="Nome">
+                
+                <input ng-model="point.position.lat" type="text" class="form-control" placeholder="Latitude">
+                <input ng-model="point.position.lng" type="text" class="form-control" placeholder="Longitude">
+                <div class="input-group-append">
+                    <button ng-click="addPoint(point)" type="button" class="btn btn-success btn-block">+</button>
+                </div>
+            </div>
+
+            <button ng-disabled="points.length < 2" ng-click="sendPoints()" type="button"
+                class="btn btn-success btn-block">Definir Rota</button>
+
+            <ul ng-repeat="point in points" class="list-group list-group-flush">
+                <li class="list-group-item">{{ point.name }}</li>
+            </ul>
+        </div>
+       
+        <map ng-if="pointList.length != 0" class="col-sm-8 side-right"></map>
+        <marker ng-if="pointList.length != 0"></marker>
+        <polyline ng-if="pointList.length != 0"></polyline>
+        
+                           
+       
+
+    </div>
+
+    <script src="./lib/angular.js"></script>
+    <script src="./lib/leaflet/leaflet.js"></script>
+    <script src="./js/app.js"></script>
+
+    <script src="./js/controllers/appMapCtrl.js"></script>
+
+    <script src="./js/value/configs.js"></script>
+   
+    <script src="./js/services/pointsApiService.js"></script>
+    <script src="./js/services/mapFactory.js"></script>
+    <script src="./js/services/leaftDataService.js"></script>
+    
+
+    <script src="./js/directives/mapDirective.js"></script>
+    <script src="./js/directives/markerDirective.js"></script>
+    <script src="./js/directives/polylineDirective.js"></script>
+
+   
+</body>
+
+</html>
