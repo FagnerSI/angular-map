@@ -15,13 +15,13 @@
 
 <body>
     <div ng-controller="appMapCtrl" class="row content">
-        <div  class="col-sm-4 side-left">
-               
+        <div class="col-sm-4 side-left">
+
             <img class="logo" src="img/trixlog.png" />
 
             <div class="input-group mb-3">
-                    <input ng-model="point.name" type="text" class="form-control" placeholder="Nome">
-                
+                <input ng-model="point.name" type="text" class="form-control" placeholder="Nome">
+
                 <input ng-model="point.position.lat" type="text" class="form-control" placeholder="Latitude">
                 <input ng-model="point.position.lng" type="text" class="form-control" placeholder="Longitude">
                 <div class="input-group-append">
@@ -36,13 +36,12 @@
                 <li class="list-group-item">{{ point.name }}</li>
             </ul>
         </div>
-       
-        <map ng-if="pointList.length != 0" class="col-sm-8 side-right"></map>
-        <marker ng-if="pointList.length != 0"></marker>
-        <polyline ng-if="pointList.length != 0"></polyline>
-        
-                           
-       
+
+        <map ng-if="pointList.length != 0" class="col-sm-8 side-right">
+            <marker ng-if="pointList.length != 0"></marker>
+            <polyline ng-if="pointList.length != 0"></polyline>
+        </map>
+
 
     </div>
 
@@ -53,17 +52,15 @@
     <script src="./js/controllers/appMapCtrl.js"></script>
 
     <script src="./js/value/configs.js"></script>
-   
+
     <script src="./js/services/pointsApiService.js"></script>
     <script src="./js/services/mapFactory.js"></script>
-    <script src="./js/services/leaftDataService.js"></script>
-    
 
     <script src="./js/directives/mapDirective.js"></script>
     <script src="./js/directives/markerDirective.js"></script>
     <script src="./js/directives/polylineDirective.js"></script>
 
-   
+
 </body>
 
 </html>

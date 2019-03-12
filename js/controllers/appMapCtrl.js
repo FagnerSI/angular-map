@@ -17,28 +17,24 @@ angular
         }
         //Geocodificação
         $scope.sendPoints = function () {           
-            $scope.pointList = [];
-            //Talvez criar metodo como loadPoint
+            $scope.pointList = [];          
             pointsAPI.sendPoints($scope.points)
                 .then(function () {                    
                     loadPoints();
                 })
                 .catch(function () {
-                    alert("Erro")
+                    alert("Erro no Post")
                 });
-            //$scope.points = [];
         }
         
         var loadPoints = function () {
             pointsAPI.getPoints()
-                .then(function (data) {
-                    console.log(data)
+                .then(function (data) {                    
                     $scope.pointList = data.data[0];
                 })
                 .catch(function () {
-                    alert("Erro")
+                    alert("Erro no Get")
                 });
-
         }
 
 

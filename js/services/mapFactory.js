@@ -6,7 +6,7 @@ angular
 
         var _map = function (element, center) {
 
-            map_pop = L.map(element).setView(center, config.map.zoom);
+            myMap = L.map(element).setView(center, config.map.zoom);
 
             L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                 id: config.tileLayer.id,

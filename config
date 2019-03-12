@@ -1,3 +1,22 @@
-bootstrap
-angular
-leaft
+-Dependencias
+-- bootstrap
+-- angular
+-- leaft
+
+-Modelos
+-- PARADA 
+    {
+        name: String,
+        position: {
+            lat: Double,
+            lng: Double
+        }
+    }
+    
+-- RETORNO 
+    {
+		name: String,
+		routeDate: Date,
+		stops: List<PARADA>,
+		encodedPath: PATH ENCODADO DA ROTA
+	}
