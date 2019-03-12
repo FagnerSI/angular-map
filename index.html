@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="./lib/leaflet/leaflet.css">
     <link rel="stylesheet" href="./css/style.css">
-
 
 </head>
 
@@ -32,9 +31,22 @@
             <button ng-disabled="points.length < 2" ng-click="sendPoints()" type="button"
                 class="btn btn-success btn-block">Definir Rota</button>
 
-            <ul ng-repeat="point in points" class="list-group list-group-flush">
-                <li class="list-group-item">{{ point.name }}</li>
-            </ul>
+            <table ng-show="points.length != 0" class="table  table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Pontos Cadastrados</th>
+                        <th><button ng-disabled="!isPointSelected(points)" ng-click="deletePoints(points)" type="button"
+                                class="btn btn-danger btn-sm">Apagar</button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="point in points">
+                        <td>{{ point.name }}</td>
+                        <td><input type="checkbox"  ng-model="point.selected"></td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
 
         <map ng-if="pointList.length != 0" class="col-sm-8 side-right">
